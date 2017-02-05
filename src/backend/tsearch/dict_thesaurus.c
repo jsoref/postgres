@@ -183,7 +183,7 @@ thesaurusRead(char *filename, DictThesaurus *d)
 	{
 		char	   *ptr;
 		int			state = TR_WAITLEX;
-		char	   *beginwrd = NULL;
+		char	   *beginword = NULL;
 		uint32		posinsubst = 0;
 		uint32		nwrd = 0;
 
@@ -214,7 +214,7 @@ thesaurusRead(char *filename, DictThesaurus *d)
 				}
 				else if (!t_isspace(ptr))
 				{
-					beginwrd = ptr;
+					beginword = ptr;
 					state = TR_INLEX;
 				}
 			}
@@ -222,12 +222,12 @@ thesaurusRead(char *filename, DictThesaurus *d)
 			{
 				if (t_iseq(ptr, ':'))
 				{
-					newLexeme(d, beginwrd, ptr, idsubst, posinsubst++);
+					newLexeme(d, beginword, ptr, idsubst, posinsubst++);
 					state = TR_WAITSUBS;
 				}
 				else if (t_isspace(ptr))
 				{
-					newLexeme(d, beginwrd, ptr, idsubst, posinsubst++);
+					newLexeme(d, beginword, ptr, idsubst, posinsubst++);
 					state = TR_WAITLEX;
 				}
 			}
@@ -237,18 +237,18 @@ thesaurusRead(char *filename, DictThesaurus *d)
 				{
 					useasis = true;
 					state = TR_INSUBS;
-					beginwrd = ptr + pg_mblen(ptr);
+					beginword = ptr + pg_mblen(ptr);
 				}
 				else if (t_iseq(ptr, '\\'))
 				{
 					useasis = false;
 					state = TR_INSUBS;
-					beginwrd = ptr + pg_mblen(ptr);
+					beginword = ptr + pg_mblen(ptr);
 				}
 				else if (!t_isspace(ptr))
 				{
 					useasis = false;
-					beginwrd = ptr;
+					beginword = ptr;
 					state = TR_INSUBS;
 				}
 			}
@@ -256,11 +256,11 @@ thesaurusRead(char *filename, DictThesaurus *d)
 			{
 				if (t_isspace(ptr))
 				{
-					if (ptr == beginwrd)
+					if (ptr == beginword)
 						ereport(ERROR,
 								(errcode(ERRCODE_CONFIG_FILE_ERROR),
 								 errmsg("unexpected end of line or lexeme")));
-					addWrd(d, beginwrd, ptr, idsubst, nwrd++, posinsubst, useasis);
+					addWrd(d, beginword, ptr, idsubst, nwrd++, posinsubst, useasis);
 					state = TR_WAITSUBS;
 				}
 			}
@@ -272,11 +272,11 @@ thesaurusRead(char *filename, DictThesaurus *d)
 
 		if (state == TR_INSUBS)
 		{
-			if (ptr == beginwrd)
+			if (ptr == beginword)
 				ereport(ERROR,
 						(errcode(ERRCODE_CONFIG_FILE_ERROR),
 						 errmsg("unexpected end of line or lexeme")));
-			addWrd(d, beginwrd, ptr, idsubst, nwrd++, posinsubst, useasis);
+			addWrd(d, beginword, ptr, idsubst, nwrd++, posinsubst, useasis);
 		}
 
 		idsubst++;
