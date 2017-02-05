@@ -3976,7 +3976,7 @@ XXX this is pending backpatch, may need to remove
 2016-04-07 [bb140506d] Phrase full text search.
 2016-06-27 [028350f61] Make exact distance match for FTS phrase operator
 2016-06-27 [3dbbd0f02] Do not fallback to AND for FTS phrase operator.
-2016-06-27 [6734a1cac] Change predecence of phrase operator.
+2016-06-27 [6734a1cac] Change precedence of phrase operator.
 -->
        <para>
         Improve <link linkend="textsearch">full-text search</> to support
