@@ -2783,7 +2783,7 @@ and many others in the same vein
       <listitem>
 <!--
 2016-04-08 [848ef42bb] Add the "snapshot too old" feature
-2016-05-06 [2cc41acd8] Fix hash index vs "snapshot too old" problemms
+2016-05-06 [2cc41acd8] Fix hash index vs "snapshot too old" problems
 2016-05-06 [7e3da1c47] Mitigate "snapshot too old" performance regression on NU
 2016-08-03 [3e2f3c2e4] Prevent "snapshot too old" from trying to return pruned
 2016-08-07 [9ee1cf04a] Fix TOAST access failure in RETURNING queries.
