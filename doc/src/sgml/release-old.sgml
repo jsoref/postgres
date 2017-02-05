@@ -5904,7 +5904,7 @@ European date format now set when postmaster is started
 Execute lowercase function names if not found with exact case
 Fixes for aggregate/GROUP processing, allow 'select sum(func(x),sum(x+y) from z'
 Gist now included in the distribution(Marc)
-Idend authentication of local users(Bryan)
+Ident authentication of local users(Bryan)
 Implement BETWEEN qualifier(Bruce)
 Implement IN qualifier(Bruce)
 libpq has PQgetisnull()(Bruce)
