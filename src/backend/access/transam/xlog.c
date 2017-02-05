@@ -6177,7 +6177,7 @@ StartupXLOG(void)
 		ereport(LOG,
 				(errmsg("database system was shut down in recovery at %s",
 						str_time(ControlFile->time))));
-	else if (ControlFile->state == DB_SHUTDOWNING)
+	else if (ControlFile->state == DB_SHUTTINGDOWN)
 		ereport(LOG,
 				(errmsg("database system shutdown was interrupted; last known up at %s",
 						str_time(ControlFile->time))));
@@ -8508,7 +8508,7 @@ CreateCheckPoint(int flags)
 	if (shutdown)
 	{
 		LWLockAcquire(ControlFileLock, LW_EXCLUSIVE);
-		ControlFile->state = DB_SHUTDOWNING;
+		ControlFile->state = DB_SHUTTINGDOWN;
 		ControlFile->time = (pg_time_t) time(NULL);
 		UpdateControlFile();
 		LWLockRelease(ControlFileLock);
