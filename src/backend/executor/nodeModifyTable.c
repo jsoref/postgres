@@ -1471,7 +1471,7 @@ ExecModifyTable(ModifyTableState *node)
 				junkfilter = resultRelInfo->ri_junkFilter;
 				estate->es_result_relation_info = resultRelInfo;
 				EvalPlanQualSetPlan(&node->mt_epqstate, subplanstate->plan,
-									node->mt_arowmarks[node->mt_whichplan]);
+									node->mt_arowMarks[node->mt_whichplan]);
 				continue;
 			}
 			else
@@ -1653,7 +1653,7 @@ ExecInitModifyTable(ModifyTable *node, EState *estate, int eflags)
 
 	mtstate->mt_plans = (PlanState **) palloc0(sizeof(PlanState *) * nplans);
 	mtstate->resultRelInfo = estate->es_result_relations + node->resultRelIndex;
-	mtstate->mt_arowmarks = (List **) palloc0(sizeof(List *) * nplans);
+	mtstate->mt_arowMarks = (List **) palloc0(sizeof(List *) * nplans);
 	mtstate->mt_nplans = nplans;
 	mtstate->mt_onconflict = node->onConflictAction;
 	mtstate->mt_arbiterindexes = node->arbiterIndexes;
@@ -1975,7 +1975,7 @@ ExecInitModifyTable(ModifyTable *node, EState *estate, int eflags)
 
 			subplan = mtstate->mt_plans[i]->plan;
 			aerm = ExecBuildAuxRowMark(erm, subplan->targetlist);
-			mtstate->mt_arowmarks[i] = lappend(mtstate->mt_arowmarks[i], aerm);
+			mtstate->mt_arowMarks[i] = lappend(mtstate->mt_arowMarks[i], aerm);
 		}
 	}
 
@@ -1983,7 +1983,7 @@ ExecInitModifyTable(ModifyTable *node, EState *estate, int eflags)
 	mtstate->mt_whichplan = 0;
 	subplan = (Plan *) linitial(node->plans);
 	EvalPlanQualSetPlan(&mtstate->mt_epqstate, subplan,
-						mtstate->mt_arowmarks[0]);
+						mtstate->mt_arowMarks[0]);
 
 	/*
 	 * Initialize the junk filter(s) if needed.  INSERT queries need a filter

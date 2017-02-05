@@ -349,7 +349,7 @@ ExecInitLockRows(LockRows *node, EState *estate, int eflags)
 {
 	LockRowsState *lrstate;
 	Plan	   *outerPlan = outerPlan(node);
-	List	   *epq_arowmarks;
+	List	   *epq_arowMarks;
 	ListCell   *lc;
 
 	/* check for unsupported flags */
@@ -398,7 +398,7 @@ ExecInitLockRows(LockRows *node, EState *estate, int eflags)
 	 * built the global list of ExecRowMarks.)
 	 */
 	lrstate->lr_arowMarks = NIL;
-	epq_arowmarks = NIL;
+	epq_arowMarks = NIL;
 	foreach(lc, node->rowMarks)
 	{
 		PlanRowMark *rc = castNode(PlanRowMark, lfirst(lc));
@@ -425,12 +425,12 @@ ExecInitLockRows(LockRows *node, EState *estate, int eflags)
 		if (RowMarkRequiresRowShareLock(erm->markType))
 			lrstate->lr_arowMarks = lappend(lrstate->lr_arowMarks, aerm);
 		else
-			epq_arowmarks = lappend(epq_arowmarks, aerm);
+			epq_arowMarks = lappend(epq_arowMarks, aerm);
 	}
 
 	/* Now we have the info needed to set up EPQ state */
 	EvalPlanQualInit(&lrstate->lr_epqstate, estate,
-					 outerPlan, epq_arowmarks, node->epqParam);
+					 outerPlan, epq_arowMarks, node->epqParam);
 
 	return lrstate;
 }

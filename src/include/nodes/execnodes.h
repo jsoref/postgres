@@ -1155,7 +1155,7 @@ typedef struct ModifyTableState
 	int			mt_nplans;		/* number of plans in the array */
 	int			mt_whichplan;	/* which one is being executed (0..n-1) */
 	ResultRelInfo *resultRelInfo;		/* per-subplan target relations */
-	List	  **mt_arowmarks;	/* per-subplan ExecAuxRowMark lists */
+	List	  **mt_arowMarks;	/* per-subplan ExecAuxRowMark lists */
 	EPQState	mt_epqstate;	/* for evaluating EvalPlanQual rechecks */
 	bool		fireBSTriggers; /* do we need to fire stmt triggers? */
 	OnConflictAction mt_onconflict;		/* ON CONFLICT type */
