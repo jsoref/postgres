@@ -4612,7 +4612,7 @@ This commit is also listed under psql and PL/pgSQL
 
       <listitem>
 <!--
-2015-09-14 [d02426029] Check existency of table/schema for -t/-n option (pg_dum
+2015-09-14 [d02426029] Check existence of table/schema for -t/-n option (pg_dum
 -->
        <para>
         Add a <option>--strict-names</> option
