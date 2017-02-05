@@ -5609,7 +5609,7 @@ This commit is also listed under libpq and PL/pgSQL
 
       <listitem>
 <!--
-2016-03-16 [5871b8848] GUC variable pg_trgm.similarity_threshold insead of set_
+2016-03-16 [5871b8848] GUC variable pg_trgm.similarity_threshold instead of set_
 2016-06-20 [9c852566a] Fix comparison of similarity to threshold in GIST trigra
 -->
        <para>
