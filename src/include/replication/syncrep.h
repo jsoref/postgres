@@ -50,7 +50,7 @@ typedef struct SyncRepConfigData
 								 * wait for */
 	uint8		syncrep_method;	/* method to choose sync standbys */
 	int			nmembers;		/* number of members in the following list */
-	/* member_names contains nmembers consecutive nul-terminated C strings */
+	/* member_names contains nmembers consecutive null-terminated C strings */
 	char		member_names[FLEXIBLE_ARRAY_MEMBER];
 } SyncRepConfigData;
 

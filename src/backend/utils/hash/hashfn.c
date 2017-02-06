@@ -26,7 +26,7 @@
 
 
 /*
- * string_hash: hash function for keys that are NUL-terminated strings.
+ * string_hash: hash function for keys that are NULL-terminated strings.
  *
  * NOTE: this is the default hash function if none is specified.
  */

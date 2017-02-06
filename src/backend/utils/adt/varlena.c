@@ -2222,7 +2222,7 @@ varstr_abbrev_convert(Datum original, SortSupport ssup)
 			goto done;
 		}
 
-		/* Just like strcoll(), strxfrm() expects a NUL-terminated string */
+		/* Just like strcoll(), strxfrm() expects a NULL-terminated string */
 		memcpy(sss->buf1, authoritative_data, len);
 		sss->buf1[len] = '\0';
 		sss->last_len1 = len;

@@ -45,7 +45,7 @@ typedef enum
  * error reporting routines.
  * token_terminator and prev_token_terminator point to the character
  * AFTER the end of the token, i.e. where there would be a nul byte
- * if we were using nul-terminated strings.
+ * if we were using null-terminated strings.
  */
 typedef struct JsonLexContext
 {
@@ -127,7 +127,7 @@ extern JsonLexContext *makeJsonLexContextCstringLen(char *json,
 /*
  * Utility function to check if a string is a valid JSON number.
  *
- * str agrument does not need to be nul-terminated.
+ * str argument does not need to be null-terminated.
  */
 extern bool IsValidJsonNumber(const char *str, int len);
 

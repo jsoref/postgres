@@ -357,7 +357,7 @@ typedef struct PLpgSQL_nsitem
 	 */
 	int			itemno;
 	struct PLpgSQL_nsitem *prev;
-	char		name[FLEXIBLE_ARRAY_MEMBER];	/* nul-terminated string */
+	char		name[FLEXIBLE_ARRAY_MEMBER];	/* null-terminated string */
 } PLpgSQL_nsitem;
 
 /*

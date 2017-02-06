@@ -209,7 +209,7 @@ struct tzEntry;
 /* keep this struct small; it gets used a lot */
 typedef struct
 {
-	char		token[TOKMAXLEN + 1];	/* always NUL-terminated */
+	char		token[TOKMAXLEN + 1];	/* always NULL-terminated */
 	char		type;			/* see field type codes above */
 	int32		value;			/* meaning depends on type */
 } datetkn;
@@ -227,7 +227,7 @@ typedef struct TimeZoneAbbrevTable
 typedef struct DynamicZoneAbbrev
 {
 	pg_tz	   *tz;				/* NULL if not yet looked up */
-	char		zone[FLEXIBLE_ARRAY_MEMBER];	/* NUL-terminated zone name */
+	char		zone[FLEXIBLE_ARRAY_MEMBER];	/* NULL-terminated zone name */
 } DynamicZoneAbbrev;
 
 

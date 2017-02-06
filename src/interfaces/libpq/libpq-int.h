@@ -144,7 +144,7 @@ typedef struct pgMessageField
 {
 	struct pgMessageField *next;	/* list link */
 	char		code;			/* field code */
-	char		contents[FLEXIBLE_ARRAY_MEMBER];		/* value, nul-terminated */
+	char		contents[FLEXIBLE_ARRAY_MEMBER];		/* value, null-terminated */
 } PGMessageField;
 
 /* Fields needed for notice handling */

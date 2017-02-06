@@ -321,7 +321,7 @@ BackgroundWorkerStateChange(void)
 
 		/*
 		 * Copy strings in a paranoid way.  If shared memory is corrupted, the
-		 * source data might not even be NUL-terminated.
+		 * source data might not even be NULL-terminated.
 		 */
 		ascii_safe_strlcpy(rw->rw_worker.bgw_name,
 						   slot->worker.bgw_name, BGW_MAXLEN);

@@ -845,7 +845,7 @@ convertPgWchar(pg_wchar c, trgm_mb_char *result)
 	if (c == 0)
 		return false;
 
-	/* Do the conversion, making sure the result is NUL-terminated */
+	/* Do the conversion, making sure the result is NULL-terminated */
 	memset(s, 0, sizeof(s));
 	pg_wchar2mb_with_len(&c, s, 1);
 

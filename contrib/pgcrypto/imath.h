@@ -163,7 +163,7 @@ mp_result	mp_int_sqrt(mp_int a, mp_int c);	/* c = floor(sqrt(q)) */
 /* Convert to an int, if representable (returns MP_RANGE if not). */
 mp_result	mp_int_to_int(mp_int z, int *out);
 
-/* Convert to nul-terminated string with the specified radix, writing at
+/* Convert to null-terminated string with the specified radix, writing at
    most limit characters including the nul terminator  */
 mp_result mp_int_to_string(mp_int z, mp_size radix,
 				 char *str, int limit);

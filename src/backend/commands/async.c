@@ -313,7 +313,7 @@ typedef enum
 typedef struct
 {
 	ListenActionKind action;
-	char		channel[FLEXIBLE_ARRAY_MEMBER]; /* nul-terminated string */
+	char		channel[FLEXIBLE_ARRAY_MEMBER]; /* null-terminated string */
 } ListenAction;
 
 static List *pendingActions = NIL;		/* list of ListenAction */

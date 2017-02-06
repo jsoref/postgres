@@ -80,7 +80,7 @@ const char *const days[] = {"Sunday", "Monday", "Tuesday", "Wednesday",
  * Note that this table must be strictly alphabetically ordered to allow an
  * O(ln(N)) search algorithm to be used.
  *
- * The token field must be NUL-terminated; we truncate entries to TOKMAXLEN
+ * The token field must be NULL-terminated; we truncate entries to TOKMAXLEN
  * characters to fit.
  *
  * The static table contains no TZ, DTZ, or DYNTZ entries; rather those

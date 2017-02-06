@@ -202,7 +202,7 @@ typedef int32 fsec_t;
 /* keep this struct small; it gets used a lot */
 typedef struct
 {
-	char		token[TOKMAXLEN + 1];	/* always NUL-terminated */
+	char		token[TOKMAXLEN + 1];	/* always NULL-terminated */
 	char		type;			/* see field type codes above */
 	int32		value;			/* meaning depends on type */
 } datetkn;

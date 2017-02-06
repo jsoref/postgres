@@ -3231,7 +3231,7 @@ PQfreeNotify(PGnotify *notify)
  *
  * For safety the buffer at "to" must be at least 2*length + 1 bytes long.
  * A terminating NUL character is added to the output string, whether the
- * input is NUL-terminated or not.
+ * input is NULL-terminated or not.
  *
  * Returns the actual length of the output (not counting the terminating NUL).
  */
